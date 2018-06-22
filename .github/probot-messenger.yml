@@ -1,8 +1,0 @@
----
-services:
-- name: email
-  addresses: # a list of addresses to send notifications to
-  - osowskit@hotmail.com
-  sender: # the email address of the notification sender
-    name: From
-    address: osowskit+sendgrid@hotmail.com
