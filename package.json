@@ -1,55 +1,39 @@
 {
-  "name": "about",
-  "author": "Machisté N. Quintana <mnquintana@users.noreply.github.com>",
-  "main": "./lib/main",
-  "version": "1.7.6",
-  "description": "View useful information about your Atom installation.",
-  "keywords": [],
-  "repository": "https://github.com/atom/about",
-  "license": "MIT",
+  "name": "probot-messenger",
+  "version": "0.0.1",
+  "description": "A Probot app to deliver messages from events across various services (email, IRC, XMPP, etc.)",
+  "author": "Garen J. Torikian <gjtorikian@gmail.com>",
+  "license": "LGPL",
+  "repository": "https://github.com/gjtorikian/probot-messenger.git",
   "scripts": {
-    "lint": "standard"
-  },
-  "engines": {
-    "atom": ">=1.7 <2.0.0"
+    "dev": "nodemon --exec \"npm start\"",
+    "start": "probot run ./index.js",
+    "lint": "standard --fix",
+    "test": "jest && standard",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
-    "etch": "0.9.0"
+    "nodemailer": "^4.6.4",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "probot": "^6.0.0",
+    "probot-config": "^0.1.0",
+    "strftime": "^0.10.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "standard": "^8.6.0"
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.2",
+    "smee-client": "^1.0.1",
+    "standard": "^10.0.3"
   },
-  "consumedServices": {
-    "status-bar": {
-      "versions": {
-        "^1.0.0": "consumeStatusBar"
-      }
-    }
-  },
-  "deserializers": {
-    "AboutView": "deserializeAboutView"
+  "engines": {
+    "node": ">= 8.3.0"
   },
   "standard": {
-    "ignore": [],
-    "parser": "babel-eslint",
-    "globals": [
-      "atom",
-      "afterEach",
-      "beforeEach",
-      "describe",
-      "fdescribe",
-      "xdescribe",
-      "expect",
-      "it",
-      "fit",
-      "xit",
-      "jasmine",
-      "runs",
-      "spyOn",
-      "waits",
-      "waitsFor",
-      "waitsForPromise"
+    "env": [
+      "jest"
     ]
+  }, 
+  "renovate": {
+    "renovateFork": true
   }
 }
